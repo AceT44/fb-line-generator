@@ -13,3 +13,114 @@ class GUI:
         )
         self.root.geometry("1000x700")
         self.root.resizable(False, False)
+
+        quit_btn = tk.Button(
+            self.root,
+            text="X",
+            font=("Arial", 20),
+            bg="white",
+            fg="black",
+            command=self.root.destroy
+        )
+        quit_btn.pack(anchor="nw", padx=10, pady=10)
+
+        self.main_menu()
+
+    def main_menu(self):
+        self.main_frame = tk.Frame(
+            self.root,
+            bg="white"
+        )
+        self.main_frame.pack()
+
+        top_label = tk.Label(
+            self.main_frame,
+            text="********************************",
+            font=("Arial", 30),
+            bg="white",
+            fg="black"
+        )
+        top_label.grid(row=0, column=0, pady=20)
+
+        start_btn = tk.Button(
+            self.main_frame,
+            text="GENERATE LINES",
+            font=("Arial", 20),
+            bg="white",
+            fg="black",
+            height=2,
+            width=18,
+            command=self.ga_screen
+        )
+        start_btn.grid(row=1, column=0, pady=10)
+
+        saved_btn = tk.Button(
+            self.main_frame,
+            text="SAVED LINES",
+            font=("Arial", 20),
+            bg="white",
+            fg="black",
+            height=2,
+            width=18,
+            command=self.saved_screen
+        )
+        saved_btn.grid(row=2, column=0, pady=10)
+
+        bottom_label = tk.Label(
+            self.main_frame,
+            text="\n\n\n\n\n********************************",
+            font=("Arial", 30),
+            bg="white",
+            fg="black"
+        )
+        bottom_label.grid(row=3, column=0, pady=20)
+
+    def ga_screen(self):
+        self.main_frame.pack_forget()
+
+        self.ga_frame = tk.Frame(
+            self.root,
+            bg="white"
+        )
+        self.ga_frame.pack()
+
+        self.back_btn = tk.Button(
+            self.ga_frame,
+            text="BACK",
+            font=("Arial", 16),
+            bg="white",
+            fg="black",
+            height=2,
+            width=10,
+            command=lambda: self.back_to_menu("ga_screen")
+        )
+        self.back_btn.grid()
+
+    def saved_screen(self):
+        self.main_frame.pack_forget()
+
+        self.saved_frame = tk.Frame(
+            self.root,
+            bg="white"
+        )
+        self.saved_frame.pack()
+
+        self.back_btn = tk.Button(
+            self.saved_frame,
+            text="BACK",
+            font=("Arial", 16),
+            bg="white",
+            fg="black",
+            height=2,
+            width=10,
+            command=lambda: self.back_to_menu("saved_screen")
+        )
+        self.back_btn.grid()
+
+    def back_to_menu(self, current_screen):
+        if current_screen == "ga_screen":
+            self.ga_frame.pack_forget()
+            self.main_frame.pack()
+        elif current_screen == "saved_screen":
+            self.saved_frame.pack_forget()
+            self.main_frame.pack()
