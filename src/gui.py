@@ -42,7 +42,7 @@ class GUI:
         )
         top_label.grid(row=0, column=0, pady=20)
 
-        start_btn = tk.Button(
+        menu_start_btn = tk.Button(
             self.main_frame,
             text="GENERATE LINES",
             font=("Arial", 20),
@@ -52,7 +52,7 @@ class GUI:
             width=18,
             command=self.ga_screen
         )
-        start_btn.grid(row=1, column=0, pady=10)
+        menu_start_btn.grid(row=1, column=0, pady=10)
 
         saved_btn = tk.Button(
             self.main_frame,
@@ -84,8 +84,102 @@ class GUI:
         )
         self.ga_frame.pack()
 
-        self.back_btn = tk.Button(
+        left_frame = tk.Frame(
             self.ga_frame,
+            bg="white"
+        )
+        left_frame.grid(row=0, column=0, padx=5, pady=5)
+
+        right_frame = tk.Frame(
+            self.ga_frame,
+            bg="white"
+        )
+        right_frame.grid(row=0, column=1, padx=5, pady=5)
+
+        bottom_frame = tk.Frame(
+            self.ga_frame,
+            bg="white"
+        )
+        bottom_frame.grid(row=1, column=0, columnspan=2, pady=5)
+
+        population_scale = tk.Scale(
+            left_frame,
+            font=("Arial", 14),
+            bg="white",
+            fg="black",
+            from_=3,
+            to=1000,
+            orient=tk.HORIZONTAL,
+            label="Population size",
+            length=250,
+            command=self.update_breedpool_scale
+        )
+        population_scale.grid(row=0)
+
+        self.breedpool_scale = tk.Scale(
+            left_frame,
+            font=("Arial", 14),
+            bg="white",
+            fg="black",
+            from_=2,
+            to=3,
+            orient=tk.HORIZONTAL,
+            label="Breeding pool size",
+            length=250
+        )
+        self.breedpool_scale.grid(row=1)
+
+        crossover_scale = tk.Scale(
+            left_frame,
+            font=("Arial", 14),
+            bg="white",
+            fg="black",
+            from_=0,
+            to=100,
+            orient=tk.HORIZONTAL,
+            label="Crossover rate",
+            length=250
+        )
+        crossover_scale.grid(row=2)
+
+        mutation_scale = tk.Scale(
+            left_frame,
+            font=("Arial", 14),
+            bg="white",
+            fg="black",
+            from_=0,
+            to=100,
+            orient=tk.HORIZONTAL,
+            label="Mutation rate",
+            length=250
+        )
+        mutation_scale.grid(row=3)
+
+        ga_output = tk.Text(
+            right_frame,
+            font=("Arial", 16),
+            height=20,
+            width=55,
+            bg="white",
+            fg="black",
+            state=tk.DISABLED
+        )
+        ga_output.grid()
+
+        generate_btn = tk.Button(
+            bottom_frame,
+            text="GENERATE",
+            font=("Arial", 16),
+            bg="white",
+            fg="black",
+            height=2,
+            width=10,
+            command=None
+        )
+        generate_btn.grid(row=0, column=0, padx=10, pady=20)
+
+        self.back_btn = tk.Button(
+            bottom_frame,
             text="BACK",
             font=("Arial", 16),
             bg="white",
@@ -94,7 +188,17 @@ class GUI:
             width=10,
             command=lambda: self.back_to_menu("ga_screen")
         )
-        self.back_btn.grid()
+        self.back_btn.grid(row=0, column=1, padx=10, pady=20)
+
+    def update_breedpool_scale(self, value):
+        population = int(value)
+
+        self.breedpool_scale.config(
+            to=population
+        )
+
+        if self.breedpool_scale.get() > population:
+            self.breedpool_scale.set(population)
 
     def saved_screen(self):
         self.main_frame.pack_forget()
@@ -104,6 +208,28 @@ class GUI:
             bg="white"
         )
         self.saved_frame.pack()
+
+        saved_lines_box = tk.Listbox(
+            self.saved_frame,
+            font=("Arial", 16),
+            bg="white",
+            fg="black",
+            width=80,
+            height=19
+        )
+        saved_lines_box.grid(row=0, column=0, columnspan=4, pady=30)
+
+        del_btn = tk.Button(
+            self.saved_frame,
+            text="DELETE",
+            font=("Arial", 16),
+            bg="white",
+            fg="black",
+            height=2,
+            width=10,
+            command=None
+        )
+        del_btn.grid(row=1, column=1, padx=10)
 
         self.back_btn = tk.Button(
             self.saved_frame,
@@ -115,7 +241,7 @@ class GUI:
             width=10,
             command=lambda: self.back_to_menu("saved_screen")
         )
-        self.back_btn.grid()
+        self.back_btn.grid(row=1, column=2, padx=10)
 
     def back_to_menu(self, current_screen):
         if current_screen == "ga_screen":
