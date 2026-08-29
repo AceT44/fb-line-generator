@@ -50,6 +50,10 @@ class GUI:
         self.main_menu()
 
     def create_ga_screen(self):
+        self.left_frame.grid(row=0, column=0, padx=5, pady=5)
+        self.right_frame.grid(row=0, column=1, padx=5, pady=5)
+        self.bottom_frame.grid(row=1, column=0, columnspan=2, pady=5)
+
         population_scale = tk.Scale(
             self.left_frame,
             font=("Arial", 14),
@@ -226,9 +230,9 @@ class GUI:
         self.main_frame.pack_forget()
         self.ga_frame.pack()
 
-        self.left_frame.grid(row=0, column=0, padx=5, pady=5)
-        self.right_frame.grid(row=0, column=1, padx=5, pady=5)
-        self.bottom_frame.grid(row=1, column=0, columnspan=2, pady=5)
+    def saved_screen(self):
+        self.main_frame.pack_forget()
+        self.saved_frame.pack()
 
     def update_breedpool_scale(self, value):
         population = int(value)
@@ -239,10 +243,6 @@ class GUI:
 
         if self.breedpool_scale.get() > population:
             self.breedpool_scale.set(population)
-
-    def saved_screen(self):
-        self.main_frame.pack_forget()
-        self.saved_frame.pack()
 
     def back_to_menu(self, current_screen):
         if current_screen == "ga_screen":
