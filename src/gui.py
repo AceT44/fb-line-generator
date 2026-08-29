@@ -24,6 +24,27 @@ class GUI:
         )
         quit_btn.pack(anchor="nw", padx=10, pady=10)
 
+        self.saved_frame = tk.Frame(
+            self.root,
+            bg="white"
+        )
+        self.ga_frame = tk.Frame(
+            self.root,
+            bg="white"
+        )
+        self.left_frame = tk.Frame(
+            self.ga_frame,
+            bg="white"
+        )
+        self.right_frame = tk.Frame(
+            self.ga_frame,
+            bg="white"
+        )
+        self.bottom_frame = tk.Frame(
+            self.ga_frame,
+            bg="white"
+        )
+
         self.main_menu()
 
     def main_menu(self):
@@ -77,33 +98,14 @@ class GUI:
 
     def ga_screen(self):
         self.main_frame.pack_forget()
-
-        self.ga_frame = tk.Frame(
-            self.root,
-            bg="white"
-        )
         self.ga_frame.pack()
 
-        left_frame = tk.Frame(
-            self.ga_frame,
-            bg="white"
-        )
-        left_frame.grid(row=0, column=0, padx=5, pady=5)
-
-        right_frame = tk.Frame(
-            self.ga_frame,
-            bg="white"
-        )
-        right_frame.grid(row=0, column=1, padx=5, pady=5)
-
-        bottom_frame = tk.Frame(
-            self.ga_frame,
-            bg="white"
-        )
-        bottom_frame.grid(row=1, column=0, columnspan=2, pady=5)
+        self.left_frame.grid(row=0, column=0, padx=5, pady=5)
+        self.right_frame.grid(row=0, column=1, padx=5, pady=5)
+        self.bottom_frame.grid(row=1, column=0, columnspan=2, pady=5)
 
         population_scale = tk.Scale(
-            left_frame,
+            self.left_frame,
             font=("Arial", 14),
             bg="white",
             fg="black",
@@ -117,7 +119,7 @@ class GUI:
         population_scale.grid(row=0)
 
         self.breedpool_scale = tk.Scale(
-            left_frame,
+            self.left_frame,
             font=("Arial", 14),
             bg="white",
             fg="black",
@@ -130,7 +132,7 @@ class GUI:
         self.breedpool_scale.grid(row=1)
 
         crossover_scale = tk.Scale(
-            left_frame,
+            self.left_frame,
             font=("Arial", 14),
             bg="white",
             fg="black",
@@ -143,7 +145,7 @@ class GUI:
         crossover_scale.grid(row=2)
 
         mutation_scale = tk.Scale(
-            left_frame,
+            self.left_frame,
             font=("Arial", 14),
             bg="white",
             fg="black",
@@ -156,7 +158,7 @@ class GUI:
         mutation_scale.grid(row=3)
 
         ga_output = tk.Text(
-            right_frame,
+            self.right_frame,
             font=("Arial", 16),
             height=20,
             width=55,
@@ -167,7 +169,7 @@ class GUI:
         ga_output.grid()
 
         generate_btn = tk.Button(
-            bottom_frame,
+            self.bottom_frame,
             text="GENERATE",
             font=("Arial", 16),
             bg="white",
@@ -179,7 +181,7 @@ class GUI:
         generate_btn.grid(row=0, column=0, padx=10, pady=20)
 
         self.back_btn = tk.Button(
-            bottom_frame,
+            self.bottom_frame,
             text="BACK",
             font=("Arial", 16),
             bg="white",
@@ -202,11 +204,6 @@ class GUI:
 
     def saved_screen(self):
         self.main_frame.pack_forget()
-
-        self.saved_frame = tk.Frame(
-            self.root,
-            bg="white"
-        )
         self.saved_frame.pack()
 
         saved_lines_box = tk.Listbox(
