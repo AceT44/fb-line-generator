@@ -1,4 +1,5 @@
 from logic import GeneticAlgorithm, FileSaving
+from tkinter import messagebox
 import tkinter as tk
 
 
@@ -54,6 +55,19 @@ class GUI:
         self.right_frame.grid(row=0, column=1, padx=5, pady=5)
         self.bottom_frame.grid(row=1, column=0, columnspan=2, pady=5)
 
+        self.line_length_scale = tk.Scale(
+            self.left_frame,
+            font=("Arial", 14),
+            bg="white",
+            fg="black",
+            from_=2,
+            to=10,
+            orient=tk.HORIZONTAL,
+            label="Number of tricks",
+            length=250
+        )
+        self.line_length_scale.grid(row=0, pady=10)
+
         self.population_scale = tk.Scale(
             self.left_frame,
             font=("Arial", 14),
@@ -66,7 +80,7 @@ class GUI:
             length=250,
             command=self.update_breedpool_scale
         )
-        self.population_scale.grid(row=0, pady=10)
+        self.population_scale.grid(row=1, pady=10)
 
         self.breedpool_scale = tk.Scale(
             self.left_frame,
@@ -79,7 +93,7 @@ class GUI:
             label="Breeding pool size",
             length=250
         )
-        self.breedpool_scale.grid(row=1, pady=10)
+        self.breedpool_scale.grid(row=2, pady=10)
 
         self.crossover_scale = tk.Scale(
             self.left_frame,
@@ -92,7 +106,7 @@ class GUI:
             label="Crossover rate (%)",
             length=250
         )
-        self.crossover_scale.grid(row=2, pady=10)
+        self.crossover_scale.grid(row=3, pady=10)
 
         self.mutation_scale = tk.Scale(
             self.left_frame,
@@ -105,20 +119,20 @@ class GUI:
             label="Mutation rate (%)",
             length=250
         )
-        self.mutation_scale.grid(row=3, pady=10)
+        self.mutation_scale.grid(row=4, pady=10)
 
         ga_output = tk.Text(
             self.right_frame,
-            font=("Arial", 16),
-            height=20,
-            width=55,
+            font=("Arial", 12),
+            height=25,
+            width=70,
             bg="white",
             fg="black",
             state=tk.DISABLED
         )
         ga_output.grid()
 
-        generate_btn = tk.Button(
+        self.generate_btn = tk.Button(
             self.bottom_frame,
             text="GENERATE",
             font=("Arial", 16),
@@ -126,11 +140,11 @@ class GUI:
             fg="black",
             height=2,
             width=10,
-            command=None
+            command=self.generate
         )
-        generate_btn.grid(row=0, column=0, padx=10, pady=20)
+        self.generate_btn.grid(row=0, column=0, padx=10, pady=20)
 
-        save_btn = tk.Button(
+        self.save_btn = tk.Button(
             self.bottom_frame,
             text="SAVE",
             font=("Arial", 16),
@@ -140,7 +154,7 @@ class GUI:
             width=10,
             command=None
         )
-        save_btn.grid(row=0, column=1, padx=10, pady=20)
+        self.save_btn.grid(row=0, column=1, padx=10, pady=20)
 
         self.back_btn = tk.Button(
             self.bottom_frame,
@@ -177,7 +191,7 @@ class GUI:
         )
         del_btn.grid(row=1, column=1, padx=10)
 
-        self.back_btn = tk.Button(
+        back_btn = tk.Button(
             self.saved_frame,
             text="BACK",
             font=("Arial", 16),
@@ -187,7 +201,7 @@ class GUI:
             width=10,
             command=lambda: self.back_to_menu("saved_screen")
         )
-        self.back_btn.grid(row=1, column=2, padx=10)
+        back_btn.grid(row=1, column=2, padx=10)
 
     def main_menu(self):
         self.main_frame = tk.Frame(
@@ -263,3 +277,50 @@ class GUI:
         elif current_screen == "saved_screen":
             self.saved_frame.pack_forget()
             self.main_frame.pack()
+
+    def disable_btns(self):
+        self.generate_btn.config(
+            state=tk.DISABLED
+        )
+        self.save_btn.config(
+            state=tk.DISABLED
+        )
+        self.back_btn.config(
+            state=tk.DISABLED
+        )
+
+    def enable_btns(self):
+        self.generate_btn.config(
+            state=tk.NORMAL
+        )
+        self.save_btn.config(
+            state=tk.NORMAL
+        )
+        self.back_btn.config(
+            state=tk.NORMAL
+        )
+
+    def generate(self):
+        num_of_tricks = self.line_length_scale.get()
+        population_size = self.population_scale.get()
+        breeding_pool = self.breedpool_scale.get()
+        crossover_rate = self.crossover_scale.get()
+        mutation_rate = self.mutation_scale.get()
+
+        if crossover_rate == 0 and mutation_rate == 0:
+            messagebox.showerror(
+                "Error", "Crossover rate and mutation rate cannot both be zero!"
+            )
+            return
+
+        self.disable_btns()
+
+        self.ga.start_ga(
+            num_of_tricks,
+            population_size,
+            breeding_pool,
+            crossover_rate,
+            mutation_rate
+        )
+
+        self.enable_btns()
