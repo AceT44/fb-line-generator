@@ -1,51 +1,69 @@
-TRICKS = [
-    {
-        'name': 'ollie',
+ACCEPTABLE_STANCES = {
+    'regular': 'nollie',
+    'fakie': 'switch',
+    'nollie': 'regular',
+    'switch': 'fakie'
+}
+
+TRICKS = {
+    'ollie': {
         'difficulty': 1,
-        'category': 'flatground'
-    }, {
-        'name': 'fakie ollie',
+        'category': 'flatground',
+        'stance': 'regular'
+    },
+    'fakie ollie': {
         'difficulty': 1,
-        'category': 'flatground'
-    }, {
-        'name': 'nollie',
-        'difficulty': 2,
-        'category': 'flatground'
-    }, {
-        'name': 'switch ollie',
-        'difficulty': 2,
-        'category': 'flatground'
-    }, {
-        'name': 'BS shuvit',
+        'category': 'flatground',
+        'stance': 'fakie'
+    },
+    'nollie': {
         'difficulty': 1,
-        'category': 'flatground'
-    }, {
-        'name': 'fakie BS shuvit',
+        'category': 'flatground',
+        'stance': 'nollie'
+    },
+    'switch ollie': {
         'difficulty': 1,
-        'category': 'flatground'
-    }, {
-        'name': 'nollie BS shuvit',
+        'category': 'flatground',
+        'stance': 'switch'
+    },
+    'BS shuvit': {
+        'difficulty': 1,
+        'category': 'flatground',
+        'stance': 'regular'
+    },
+    'fakie BS shuvit': {
+        'difficulty': 1,
+        'category': 'flatground',
+        'stance': 'fakie'
+    },
+    'nollie BS shuvit': {
         'difficulty': 2,
-        'category': 'flatground'
-    }, {
-        'name': 'switch BS shuvit',
+        'category': 'flatground',
+        'stance': 'nollie'
+    },
+    'switch BS shuvit': {
         'difficulty': 2,
-        'category': 'flatground'
-    }, {
-        'name': 'FS shuvit',
+        'category': 'flatground',
+        'stance': 'switch'
+    },
+    'FS shuvit': {
         'difficulty': 2,
-        'category': 'flatground'
-    }, {
-        'name': 'fakie FS shuvit',
+        'category': 'flatground',
+        'stance': 'regular'
+    },
+    'fakie FS shuvit': {
         'difficulty': 2,
-        'category': 'flatground'
-    }, {
-        'name': 'nollie FS shuvit',
+        'category': 'flatground',
+        'stance': 'fakie'
+    },
+    'nollie FS shuvit': {
         'difficulty': 2,
-        'category': 'flatground'
-    }, {
-        'name': 'switch FS shuvit',
-        'difficulty': 3,
-        'category': 'flatground'
+        'category': 'flatground',
+        'stance': 'nollie'
+    },
+    'switch FS shuvit': {
+        'difficulty': 2,
+        'category': 'flatground',
+        'stance': 'switch'
     }
-]
+}

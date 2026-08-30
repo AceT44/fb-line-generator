@@ -1,4 +1,4 @@
-from trick_data import TRICKS
+from trick_data import ACCEPTABLE_STANCES, TRICKS
 import random
 
 
@@ -13,11 +13,11 @@ class GeneticAlgorithm:
             line = []
 
             for _ in range(num_of_tricks):
-                line.append(random.choice(TRICKS)['name'])
+                line.append(random.choice(list(TRICKS)))
             self.population.append(line)
 
         generation = 1
-        best_fitness = 0
+        # best_fitness = 0
         # gens_without_improvement = 0
 
         while True:
@@ -41,8 +41,23 @@ class GeneticAlgorithm:
         for line in self.population:
             score = 0
 
-            for i in range(len(line)):
-                pass
+            unique_difficulties = set()
+            unique_tricks = set()
+
+            for trick in line:
+                unique_difficulties.add(TRICKS[trick]['difficulty'])
+                unique_tricks.add(trick)
+            score += len(unique_difficulties)
+            score += len(unique_tricks)
+
+            for i in range(len(line) - 1):
+                current_stance = TRICKS[line[i]]['stance']
+                next_stance = TRICKS[line[i + 1]]['stance']
+
+                if current_stance == next_stance or next_stance == ACCEPTABLE_STANCES[current_stance]:
+                    score += 1
+
+            # award fitness for category
 
             self.fitness_scores.append(score)
 
