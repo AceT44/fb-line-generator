@@ -3,9 +3,6 @@ import random
 
 
 class GeneticAlgorithm:
-    def __init__(self):
-        pass
-
     def start_ga(self, num_of_tricks, population_size, breeding_pool, crossover_rate, mutation_rate):
         self.population = []
 
@@ -22,7 +19,7 @@ class GeneticAlgorithm:
 
         while True:
             self.fitness()
-            self.selection()
+            self.selection(breeding_pool)
 
             # code for gens without improvement
 
@@ -44,25 +41,39 @@ class GeneticAlgorithm:
             unique_difficulties = set()
             unique_tricks = set()
 
-            for trick in line:
+            for trick in line:  # awarding fitness for non-repeated difficulties and tricks
                 unique_difficulties.add(TRICKS[trick]['difficulty'])
                 unique_tricks.add(trick)
             score += len(unique_difficulties)
             score += len(unique_tricks)
 
-            for i in range(len(line) - 1):
+            for i in range(len(line) - 1):  # awarding fitness for consistency in stances
                 current_stance = TRICKS[line[i]]['stance']
                 next_stance = TRICKS[line[i + 1]]['stance']
 
                 if current_stance == next_stance or next_stance == ACCEPTABLE_STANCES[current_stance]:
                     score += 1
 
-            # award fitness for category
+            for i in range(len(line) - 1):  # awarding fitness for having various categories
+                current_category = TRICKS[line[i]]['category']
+                next_category = TRICKS[line[i + 1]]['category']
+
+                if current_category != next_category:
+                    score += 1
 
             self.fitness_scores.append(score)
 
-    def selection(self):
-        pass
+    def selection(self, breeding_pool):
+        sorted_fitness = sorted(
+            zip(self.population, self.fitness_scores),
+            key=lambda x: x[1],
+            reverse=True
+        )
+
+        self.parents = []
+
+        for i in range(breeding_pool):
+            self.parents.append(sorted_fitness[i][0])
 
     def crossover(self):
         pass

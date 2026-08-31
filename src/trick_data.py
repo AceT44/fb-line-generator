@@ -6,6 +6,26 @@ ACCEPTABLE_STANCES = {
 }
 
 TRICKS = {
+    'manual': {
+        'difficulty': 1,
+        'category': 'manual',
+        'stance': 'regular'
+    },
+    'fakie manual': {
+        'difficulty': 2,
+        'category': 'manual',
+        'stance': 'fakie'
+    },
+    'nollie manual': {
+        'difficulty': 2,
+        'category': 'manual',
+        'stance': 'nollie'
+    },
+    'switch manual': {
+        'difficulty': 1,
+        'category': 'manual',
+        'stance': 'switch'
+    },
     'ollie': {
         'difficulty': 1,
         'category': 'flatground',
