@@ -304,8 +304,8 @@ class GUI:
         num_of_tricks = self.line_length_scale.get()
         population_size = self.population_scale.get()
         breeding_pool = self.breedpool_scale.get()
-        crossover_rate = self.crossover_scale.get()
-        mutation_rate = self.mutation_scale.get()
+        crossover_rate = self.crossover_scale.get() / 100
+        mutation_rate = self.mutation_scale.get() / 100
 
         if crossover_rate == 0 and mutation_rate == 0:
             messagebox.showerror(
@@ -320,7 +320,11 @@ class GUI:
             population_size,
             breeding_pool,
             crossover_rate,
-            mutation_rate
+            mutation_rate,
+            self.display_generation
         )
 
         self.enable_btns()
+
+    def display_generation(self):
+        pass

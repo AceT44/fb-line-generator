@@ -3,7 +3,7 @@ import random
 
 
 class GeneticAlgorithm:
-    def start_ga(self, num_of_tricks, population_size, breeding_pool, crossover_rate, mutation_rate):
+    def start_ga(self, num_of_tricks, population_size, breeding_pool, crossover_rate, mutation_rate, update_gui):
         self.population = []
 
         for _ in range(population_size):
@@ -14,21 +14,26 @@ class GeneticAlgorithm:
             self.population.append(line)
 
         generation = 1
-        # best_fitness = 0
-        # gens_without_improvement = 0
+        best_fitness = 0
+        best_line = None
 
-        while True:
+        while generation < 100:
             self.fitness()
             self.selection(breeding_pool)
 
-            # code for gens without improvement
+            current_best_fitness = self.sorted_fitness[0][1]
+            if current_best_fitness > best_fitness:
+                best_fitness = current_best_fitness
+                best_line = self.sorted_fitness[0][0]
 
-            # display generation
+            update_gui(
+                generation,
+                best_line,
+                best_fitness
+            )
 
-            # breaking the loop
-
-            self.crossover()
-            self.mutation()
+            self.crossover(population_size, crossover_rate, num_of_tricks)
+            self.mutation(mutation_rate)
 
             generation += 1
 
@@ -64,7 +69,7 @@ class GeneticAlgorithm:
             self.fitness_scores.append(score)
 
     def selection(self, breeding_pool):
-        sorted_fitness = sorted(
+        self.sorted_fitness = sorted(
             zip(self.population, self.fitness_scores),
             key=lambda x: x[1],
             reverse=True
@@ -73,13 +78,32 @@ class GeneticAlgorithm:
         self.parents = []
 
         for i in range(breeding_pool):
-            self.parents.append(sorted_fitness[i][0])
+            self.parents.append(self.sorted_fitness[i][0])
 
-    def crossover(self):
-        pass
+    def crossover(self, population_size, crossover_rate, num_of_tricks):
+        new_population = []
 
-    def mutation(self):
-        pass
+        for _ in range(population_size):
+            rand_parent1 = random.choice(self.parents)
+            rand_parent2 = random.choice(self.parents)
+
+            if random.random() < crossover_rate:
+                crossover_point = random.randint(1, num_of_tricks - 1)
+
+                child = rand_parent1[:crossover_point] + \
+                    rand_parent2[crossover_point:]
+            else:
+                child = rand_parent1.copy()
+
+            new_population.append(child)
+
+        self.population = new_population
+
+    def mutation(self, mutation_rate):
+        for child in self.population:
+            for i in range(len(child)):
+                if random.random() < mutation_rate:
+                    child[i] = random.choice(list(TRICKS))
 
 
 class FileSaving:
