@@ -329,18 +329,19 @@ class GUI:
             breeding_pool,
             crossover_rate,
             mutation_rate,
-            self.display_generation
+            self.display_generation,
+            self.display_best_line
         )
 
         self.enable_btns()
 
-    def display_generation(self, generation: int, best_line: list, best_fitness: int) -> None:
+    def display_generation(self, generation: int, current_best_line: list, current_best_fitness: int) -> None:
         self.ga_output.config(
             state=tk.NORMAL
         )
 
         self.ga_output.insert(
-            tk.END, f"Generation {generation}:\n{', '.join(best_line)}\nFitness: {best_fitness}\n\n"
+            tk.END, f"Generation {generation}:\n{', '.join(current_best_line)}\nFitness: {current_best_fitness}\n\n"
         )
         self.ga_output.see(tk.END)
 
@@ -349,3 +350,19 @@ class GUI:
         )
 
         self.root.update()
+
+    def display_best_line(self, best_line: list, best_fitness: int) -> None:
+        self.ga_output.config(
+            state=tk.NORMAL
+        )
+
+        self.ga_output.insert(
+            tk.END,
+            f"BEST LINE: {', '.join(best_line)}\nBEST FITNESS: {best_fitness}\n"
+        )
+
+        self.ga_output.see(tk.END)
+
+        self.ga_output.config(
+            state=tk.DISABLED
+        )

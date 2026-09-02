@@ -606,5 +606,645 @@ TRICKS = {
         'difficulty': 5,
         'category': 'spin',
         'stance': 'switch'
+    },
+    'FS boardslide': {
+        'difficulty': 1,
+        'category': 'slide',
+        'stance': 'regular'
+    },
+    'fakie FS boardslide': {
+        'difficulty': 1,
+        'category': 'slide',
+        'stance': 'fakie'
+    },
+    'nollie FS boardslide': {
+        'difficulty': 2,
+        'category': 'slide',
+        'stance': 'nollie'
+    },
+    'switch FS boardslide': {
+        'difficulty': 2,
+        'category': 'slide',
+        'stance': 'switch'
+    },
+    'BS boardslide': {
+        'difficulty': 1,
+        'category': 'slide',
+        'stance': 'regular'
+    },
+    # 'fakie BS boardslide': {
+    #     'difficulty': 4,
+    #     'category': 'slide',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS boardslide': {
+    #     'difficulty': 4,
+    #     'category': 'slide',
+    #     'stance': 'nollie'
+    # },
+    'switch BS boardslide': {
+        'difficulty': 2,
+        'category': 'slide',
+        'stance': 'switch'
+    },
+    'FS lipslide': {
+        'difficulty': 2,
+        'category': 'slide',
+        'stance': 'regular'
+    },
+    'fakie FS lipslide': {
+        'difficulty': 2,
+        'category': 'slide',
+        'stance': 'fakie'
+    },
+    'nollie FS lipslide': {
+        'difficulty': 2,
+        'category': 'slide',
+        'stance': 'nollie'
+    },
+    'switch FS lipslide': {
+        'difficulty': 3,
+        'category': 'slide',
+        'stance': 'switch'
+    },
+    'BS lipslide': {
+        'difficulty': 4,
+        'category': 'slide',
+        'stance': 'regular'
+    },
+    # 'fakie BS lipslide': {
+    #     'difficulty': 5,
+    #     'category': 'slide',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS lipslide': {
+    #     'difficulty': 5,
+    #     'category': 'slide',
+    #     'stance': 'nollie'
+    # },
+    'switch BS lipslide': {
+        'difficulty': 4,
+        'category': 'slide',
+        'stance': 'switch'
+    },
+    'FS bluntslide': {
+        'difficulty': 4,
+        'category': 'slide',
+        'stance': 'regular'
+    },
+    'fakie FS bluntslide': {
+        'difficulty': 4,
+        'category': 'slide',
+        'stance': 'fakie'
+    },
+    'nollie FS bluntslide': {
+        'difficulty': 4,
+        'category': 'slide',
+        'stance': 'nollie'
+    },
+    'switch FS bluntslide': {
+        'difficulty': 4,
+        'category': 'slide',
+        'stance': 'switch'
+    },
+    'BS bluntslide': {
+        'difficulty': 2,
+        'category': 'slide',
+        'stance': 'regular'
+    },
+    # 'fakie BS bluntslide': {
+    #     'difficulty': 5,
+    #     'category': 'slide',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS bluntslide': {
+    #     'difficulty': 5,
+    #     'category': 'slide',
+    #     'stance': 'nollie'
+    # },
+    'switch BS bluntslide': {
+        'difficulty': 5,
+        'category': 'slide',
+        'stance': 'switch'
+    },
+    'FS noseblunt': {
+        'difficulty': 3,
+        'category': 'slide',
+        'stance': 'regular'
+    },
+    'fakie FS noseblunt': {
+        'difficulty': 3,
+        'category': 'slide',
+        'stance': 'fakie'
+    },
+    'nollie FS noseblunt': {
+        'difficulty': 3,
+        'category': 'slide',
+        'stance': 'nollie'
+    },
+    'switch FS noseblunt': {
+        'difficulty': 4,
+        'category': 'slide',
+        'stance': 'switch'
+    },
+    'BS noseblunt': {
+        'difficulty': 4,
+        'category': 'slide',
+        'stance': 'regular'
+    },
+    # 'fakie BS noseblunt': {
+    #     'difficulty': 5,
+    #     'category': 'slide',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS noseblunt': {
+    #     'difficulty': 5,
+    #     'category': 'slide',
+    #     'stance': 'nollie'
+    # },
+    'switch BS noseblunt': {
+        'difficulty': 4,
+        'category': 'slide',
+        'stance': 'switch'
+    },
+    'FS tailslide': {
+        'difficulty': 1,
+        'category': 'slide',
+        'stance': 'regular'
+    },
+    'fakie FS tailslide': {
+        'difficulty': 2,
+        'category': 'slide',
+        'stance': 'fakie'
+    },
+    'nollie FS tailslide': {
+        'difficulty': 3,
+        'category': 'slide',
+        'stance': 'nollie'
+    },
+    'switch FS tailslide': {
+        'difficulty': 4,
+        'category': 'slide',
+        'stance': 'switch'
+    },
+    # 'BS tailslide': {
+    #     'difficulty': 4,
+    #     'category': 'slide',
+    #     'stance': 'regular'
+    # },
+    # 'fakie BS tailslide': {
+    #     'difficulty': 5,
+    #     'category': 'slide',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS tailslide': {
+    #     'difficulty': 5,
+    #     'category': 'slide',
+    #     'stance': 'nollie'
+    # },
+    # 'switch BS tailslide': {
+    #     'difficulty': 5,
+    #     'category': 'slide',
+    #     'stance': 'switch'
+    # },
+    'FS noseslide': {
+        'difficulty': 3,
+        'category': 'slide',
+        'stance': 'regular'
+    },
+    'fakie FS noseslide': {
+        'difficulty': 3,
+        'category': 'slide',
+        'stance': 'fakie'
+    },
+    'nollie FS noseslide': {
+        'difficulty': 4,
+        'category': 'slide',
+        'stance': 'nollie'
+    },
+    'switch FS noseslide': {
+        'difficulty': 2,
+        'category': 'slide',
+        'stance': 'switch'
+    },
+    'BS noseslide': {
+        'difficulty': 2,
+        'category': 'slide',
+        'stance': 'regular'
+    },
+    # 'fakie BS noseslide': {
+    #     'difficulty': 5,
+    #     'category': 'slide',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS noseslide': {
+    #     'difficulty': 5,
+    #     'category': 'slide',
+    #     'stance': 'nollie'
+    # },
+    # 'switch BS noseslide': {
+    #     'difficulty': 4,
+    #     'category': 'slide',
+    #     'stance': 'switch'
+    # },
+    'FS 50-50': {
+        'difficulty': 1,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    'fakie FS 50-50': {
+        'difficulty': 1,
+        'category': 'grind',
+        'stance': 'fakie'
+    },
+    'nollie FS 50-50': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'nollie'
+    },
+    'switch FS 50-50': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'BS 50-50': {
+        'difficulty': 1,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    # 'fakie BS 50-50': {
+    #     'difficulty': 4,
+    #     'category': 'grind',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS 50-50': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'nollie'
+    # },
+    'switch BS 50-50': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'FS 5-0': {
+        'difficulty': 1,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    'fakie FS 5-0': {
+        'difficulty': 1,
+        'category': 'grind',
+        'stance': 'fakie'
+    },
+    'nollie FS 5-0': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'nollie'
+    },
+    'switch FS 5-0': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'BS 5-0': {
+        'difficulty': 1,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    # 'fakie BS 5-0': {
+    #     'difficulty': 4,
+    #     'category': 'grind',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS 5-0': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'nollie'
+    # },
+    'switch BS 5-0': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'FS nosegrind': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    'fakie FS nosegrind': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'fakie'
+    },
+    'nollie FS nosegrind': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'nollie'
+    },
+    'switch FS nosegrind': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'BS nosegrind': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    # 'fakie BS nosegrind': {
+    #     'difficulty': 4,
+    #     'category': 'grind',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS nosegrind': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'nollie'
+    # },
+    'switch BS nosegrind': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'FS crooked grind': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    'fakie FS crooked grind': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'fakie'
+    },
+    'nollie FS crooked grind': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'nollie'
+    },
+    'switch FS crooked grind': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'BS crooked grind': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    # 'fakie BS crooked grind': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS crooked grind': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'nollie'
+    # },
+    'switch BS crooked grind': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'FS suski': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    'fakie FS suski': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'fakie'
+    },
+    'nollie FS suski': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'nollie'
+    },
+    'switch FS suski': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'BS suski': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    # 'fakie BS suski': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS suski': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'nollie'
+    # },
+    'switch BS suski': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'FS salad': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    'fakie FS salad': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'fakie'
+    },
+    'nollie FS salad': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'nollie'
+    },
+    'switch FS salad': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'BS salad': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    # 'fakie BS salad': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS salad': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'nollie'
+    # },
+    'switch BS salad': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'FS smith': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    'fakie FS smith': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'fakie'
+    },
+    'nollie FS smith': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'nollie'
+    },
+    'switch FS smith': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'BS smith': {
+        'difficulty': 4,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    # 'fakie BS smith': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS smith': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'nollie'
+    # },
+    'switch BS smith': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'FS feeble': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    'fakie FS feeble': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'fakie'
+    },
+    'nollie FS feeble': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'nollie'
+    },
+    'switch FS feeble': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'BS feeble': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    # 'fakie BS feeble': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS feeble': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'nollie'
+    # },
+    'switch BS feeble': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'FS willy': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    'fakie FS willy': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'fakie'
+    },
+    'nollie FS willy': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'nollie'
+    },
+    'switch FS willy': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'BS willy': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    # 'fakie BS willy': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS willy': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'nollie'
+    # },
+    'switch BS willy': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'FS losi': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    'fakie FS losi': {
+        'difficulty': 2,
+        'category': 'grind',
+        'stance': 'fakie'
+    },
+    'nollie FS losi': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'nollie'
+    },
+    'switch FS losi': {
+        'difficulty': 4,
+        'category': 'grind',
+        'stance': 'switch'
+    },
+    'BS losi': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'regular'
+    },
+    # 'fakie BS losi': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'fakie'
+    # },
+    # 'nollie BS losi': {
+    #     'difficulty': 5,
+    #     'category': 'grind',
+    #     'stance': 'nollie'
+    # },
+    'switch BS losi': {
+        'difficulty': 3,
+        'category': 'grind',
+        'stance': 'switch'
     }
 }

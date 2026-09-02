@@ -10,7 +10,8 @@ class GeneticAlgorithm:
             breeding_pool: int,
             crossover_rate: float,
             mutation_rate: float,
-            update_gui
+            update_gui,
+            display_best
     ) -> None:
         self.population = []
 
@@ -29,21 +30,27 @@ class GeneticAlgorithm:
             self.fitness()
             self.selection(breeding_pool)
 
+            current_best_line = self.sorted_fitness[0][0]
             current_best_fitness = self.sorted_fitness[0][1]
             if current_best_fitness > best_fitness:
                 best_fitness = current_best_fitness
-                best_line = self.sorted_fitness[0][0]
+                best_line = current_best_line
 
             update_gui(
                 generation,
-                best_line,
-                best_fitness
+                current_best_line,
+                current_best_fitness
             )
 
             self.crossover(population_size, crossover_rate, num_of_tricks)
             self.mutation(mutation_rate)
 
             generation += 1
+
+        display_best(
+            best_line,
+            best_fitness
+        )
 
     def fitness(self) -> None:
         self.fitness_scores = []
@@ -52,13 +59,11 @@ class GeneticAlgorithm:
             score = 0
 
             unique_difficulties = set()
-            unique_tricks = set()
-
-            for trick in line:  # awarding fitness for non-repeated difficulties and tricks
+            for trick in line:  # awarding fitness for non-repeated difficulties
                 unique_difficulties.add(TRICKS[trick]['difficulty'])
-                unique_tricks.add(trick)
+                if line.count(trick) > 1:  # penalizing for repeated tricks
+                    score -= 1
             score += len(unique_difficulties)
-            score += len(unique_tricks)
 
             for i in range(len(line) - 1):  # awarding fitness for consistency in stances
                 current_stance = TRICKS[line[i]]['stance']
