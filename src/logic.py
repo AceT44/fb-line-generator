@@ -3,7 +3,15 @@ import random
 
 
 class GeneticAlgorithm:
-    def start_ga(self, num_of_tricks, population_size, breeding_pool, crossover_rate, mutation_rate, update_gui):
+    def start_ga(
+            self,
+            num_of_tricks: int,
+            population_size: int,
+            breeding_pool: int,
+            crossover_rate: float,
+            mutation_rate: float,
+            update_gui
+    ) -> None:
         self.population = []
 
         for _ in range(population_size):
@@ -17,7 +25,7 @@ class GeneticAlgorithm:
         best_fitness = 0
         best_line = None
 
-        while generation < 100:
+        while generation <= 100:
             self.fitness()
             self.selection(breeding_pool)
 
@@ -37,7 +45,7 @@ class GeneticAlgorithm:
 
             generation += 1
 
-    def fitness(self):
+    def fitness(self) -> None:
         self.fitness_scores = []
 
         for line in self.population:
@@ -68,7 +76,7 @@ class GeneticAlgorithm:
 
             self.fitness_scores.append(score)
 
-    def selection(self, breeding_pool):
+    def selection(self, breeding_pool: int) -> None:
         self.sorted_fitness = sorted(
             zip(self.population, self.fitness_scores),
             key=lambda x: x[1],
@@ -80,7 +88,12 @@ class GeneticAlgorithm:
         for i in range(breeding_pool):
             self.parents.append(self.sorted_fitness[i][0])
 
-    def crossover(self, population_size, crossover_rate, num_of_tricks):
+    def crossover(
+            self,
+            population_size: int,
+            crossover_rate: float,
+            num_of_tricks: int
+    ) -> None:
         new_population = []
 
         for _ in range(population_size):
@@ -99,7 +112,7 @@ class GeneticAlgorithm:
 
         self.population = new_population
 
-    def mutation(self, mutation_rate):
+    def mutation(self, mutation_rate: float) -> None:
         for child in self.population:
             for i in range(len(child)):
                 if random.random() < mutation_rate:

@@ -50,7 +50,7 @@ class GUI:
         self.create_saved_screen()
         self.main_menu()
 
-    def create_ga_screen(self):
+    def create_ga_screen(self):  # creates the screen but doesn't load it yet
         self.left_frame.grid(row=0, column=0, padx=5, pady=5)
         self.right_frame.grid(row=0, column=1, padx=5, pady=5)
         self.bottom_frame.grid(row=1, column=0, columnspan=2, pady=5)
@@ -121,7 +121,7 @@ class GUI:
         )
         self.mutation_scale.grid(row=4, pady=10)
 
-        ga_output = tk.Text(
+        self.ga_output = tk.Text(
             self.right_frame,
             font=("Arial", 12),
             height=25,
@@ -130,7 +130,7 @@ class GUI:
             fg="black",
             state=tk.DISABLED
         )
-        ga_output.grid()
+        self.ga_output.grid()
 
         self.generate_btn = tk.Button(
             self.bottom_frame,
@@ -168,7 +168,7 @@ class GUI:
         )
         self.back_btn.grid(row=0, column=2, padx=10, pady=20)
 
-    def create_saved_screen(self):
+    def create_saved_screen(self):  # creates the screen but doesn't load it yet
         saved_lines_box = tk.Listbox(
             self.saved_frame,
             font=("Arial", 16),
@@ -313,6 +313,14 @@ class GUI:
             )
             return
 
+        self.ga_output.config(
+            state=tk.NORMAL
+        )
+        self.ga_output.delete("1.0", tk.END)
+        self.ga_output.config(
+            state=tk.DISABLED
+        )
+
         self.disable_btns()
 
         self.ga.start_ga(
@@ -326,5 +334,18 @@ class GUI:
 
         self.enable_btns()
 
-    def display_generation(self):
-        pass
+    def display_generation(self, generation: int, best_line: list, best_fitness: int) -> None:
+        self.ga_output.config(
+            state=tk.NORMAL
+        )
+
+        self.ga_output.insert(
+            tk.END, f"Generation {generation}:\n{', '.join(best_line)}\nFitness: {best_fitness}\n\n"
+        )
+        self.ga_output.see(tk.END)
+
+        self.ga_output.config(
+            state=tk.DISABLED
+        )
+
+        self.root.update()
