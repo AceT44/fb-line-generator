@@ -606,6 +606,5 @@ TRICKS = {
         'difficulty': 5,
         'category': 'spin',
         'stance': 'switch'
-    },
-
+    }
 }
