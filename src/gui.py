@@ -152,7 +152,7 @@ class GUI:
             fg="black",
             height=2,
             width=10,
-            command=None
+            command=self.save_line
         )
         self.save_btn.grid(row=0, column=1, padx=10, pady=20)
 
@@ -169,15 +169,27 @@ class GUI:
         self.back_btn.grid(row=0, column=2, padx=10, pady=20)
 
     def create_saved_screen(self):  # creates the screen but doesn't load it yet
-        saved_lines_box = tk.Listbox(
+        self.saved_lines_box = tk.Listbox(
             self.saved_frame,
+            font=("Arial", 12),
+            bg="white",
+            fg="black",
+            width=105,
+            height=25
+        )
+        self.saved_lines_box.grid(row=0, column=0, columnspan=5, pady=30)
+
+        save_btn = tk.Button(
+            self.saved_frame,
+            text="SAVE",
             font=("Arial", 16),
             bg="white",
             fg="black",
-            width=80,
-            height=19
+            height=2,
+            width=10,
+            command=self.fs.save_lines
         )
-        saved_lines_box.grid(row=0, column=0, columnspan=4, pady=30)
+        save_btn.grid(row=1, column=1, padx=10)
 
         del_btn = tk.Button(
             self.saved_frame,
@@ -187,9 +199,9 @@ class GUI:
             fg="black",
             height=2,
             width=10,
-            command=None
+            command=self.delete_line
         )
-        del_btn.grid(row=1, column=1, padx=10)
+        del_btn.grid(row=1, column=2, padx=10)
 
         back_btn = tk.Button(
             self.saved_frame,
@@ -201,7 +213,7 @@ class GUI:
             width=10,
             command=lambda: self.back_to_menu("saved_screen")
         )
-        back_btn.grid(row=1, column=2, padx=10)
+        back_btn.grid(row=1, column=3, padx=10)
 
     def main_menu(self):
         self.main_frame = tk.Frame(
@@ -309,7 +321,7 @@ class GUI:
 
         if crossover_rate == 0 and mutation_rate == 0:
             messagebox.showerror(
-                "Error", "Crossover rate and mutation rate cannot both be zero!"
+                'Error', 'Crossover rate and mutation rate cannot both be zero!'
             )
             return
 
@@ -352,6 +364,9 @@ class GUI:
         self.root.update()
 
     def display_best_line(self, best_line: list, best_fitness: int) -> None:
+        self.best_line = best_line
+        self.best_fitness = best_fitness  # used in self.save_btn
+
         self.ga_output.config(
             state=tk.NORMAL
         )
@@ -366,3 +381,23 @@ class GUI:
         self.ga_output.config(
             state=tk.DISABLED
         )
+
+    def save_line(self):
+        self.saved_lines_box.insert(
+            tk.END,
+            f'Line: {', '.join(self.best_line)} | Fitness: {self.best_fitness}'
+        )
+
+        self.fs.save_line(self.best_line, self.best_fitness)
+
+    def delete_line(self):
+        selected_line = self.saved_lines_box.curselection()
+
+        if not selected_line:
+            messagebox.showerror('Error', 'SELECT A LINE TO DELETE IT!')
+            return
+
+        index = selected_line[0]
+        self.saved_lines_box.delete(index)
+
+        self.fs.delete_line(index)

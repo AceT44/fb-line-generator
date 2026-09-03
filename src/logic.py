@@ -1,5 +1,6 @@
 from trick_data import ACCEPTABLE_STANCES, TRICKS
 import random
+import json
 
 
 class GeneticAlgorithm:
@@ -77,7 +78,7 @@ class GeneticAlgorithm:
                 next_category = TRICKS[line[i + 1]]['category']
 
                 if current_category != next_category:
-                    score += 1
+                    score += 2
 
             self.fitness_scores.append(score)
 
@@ -125,5 +126,27 @@ class GeneticAlgorithm:
 
 
 class FileSaving:
+    file_path = 'fb-line-generator/saved_lines.json'
+
     def __init__(self):
-        pass
+        self.saved_lines = []
+
+    def load_lines(self):
+        try:
+            with open(self.file_path, 'r') as file:
+                self.saved_lines = json.load(file)
+        except FileNotFoundError:
+            self.save_lines()
+
+    def save_lines(self):
+        with open(self.file_path, 'w') as file:
+            json.dump(self.saved_lines, file, indent=4)
+
+    def save_line(self, best_line: list, best_fitness: int):
+        self.saved_lines.append({
+            'line': best_line,
+            'fitness': best_fitness
+        })
+
+    def delete_line(self, index):
+        self.saved_lines.pop(index)
