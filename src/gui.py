@@ -215,6 +215,14 @@ class GUI:
         )
         back_btn.grid(row=1, column=3, padx=10)
 
+        self.fs.load_lines()
+
+        for line in self.fs.saved_lines:
+            self.saved_lines_box.insert(
+                tk.END,
+                f"Line: {', '.join(line['line'])} | Fitness: {line['fitness']}"
+            )
+
     def main_menu(self):
         self.main_frame = tk.Frame(
             self.root,

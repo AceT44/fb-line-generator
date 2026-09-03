@@ -126,7 +126,7 @@ class GeneticAlgorithm:
 
 
 class FileSaving:
-    file_path = 'fb-line-generator/saved_lines.json'
+    file_path = 'saved_lines.json'
 
     def __init__(self):
         self.saved_lines = []
