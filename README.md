@@ -1,3 +1,5 @@
+<img width="993" height="695" alt="Screenshot 2026-09-04 at 10 31 11 AM" src="https://github.com/user-attachments/assets/f1892908-fbc3-4d04-9e6d-f16b717a05d3" />
+
 This project experiments with genetic algorithms to generate realistic lines of fingerboard tricks.
 
 This differs from real skateboard lines as some fingerboard rotations are limited by how far the wrist can turn (e.g. fs 180 to switch kickflip is essentially not possible). Thus, this idea was implemented in the GA.
